@@ -1,5 +1,7 @@
 package ui;
 
+import listener.ExportListener;
+
 import javax.swing.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,30 +15,31 @@ public class MainWindow extends JFrame{
     public static final int HEIGHT = 500;
 
 
-    JLabel startDateLabel;
-    JLabel stopDateLabel;
-    JLabel startYearLabel;
-    JLabel startMonthLabel;
-    JLabel startDayLabel;
-    JLabel stopYearLabel;
-    JLabel stopMonthLabel;
-    JLabel stopDayLabel;
+    public JLabel startDateLabel;
+    public JLabel stopDateLabel;
+    public JLabel startYearLabel;
+    public JLabel startMonthLabel;
+    public JLabel startDayLabel;
+    public JLabel stopYearLabel;
+    public JLabel stopMonthLabel;
+    public JLabel stopDayLabel;
 
-    JComboBox startYearBox;
-    JComboBox startMonthBox;
-    JComboBox startDayBox;
-    JComboBox stopYearBox;
-    JComboBox stopMonthBox;
-    JComboBox stopDayBox;
+    public JComboBox startYearBox;
+    public JComboBox startMonthBox;
+    public JComboBox startDayBox;
+    public JComboBox stopYearBox;
+    public JComboBox stopMonthBox;
+    public JComboBox stopDayBox;
 
-    JButton exportButton;
+    public JButton exportButton;
 
-    JScrollPane infoPane;
-    JTextArea infoArea;
+    public JScrollPane infoPane;
+    public JTextArea infoArea;
 
     public MainWindow(){
         initComponents();
 
+        this.setTitle("质控上传");
         this.setResizable(false);
         this.setSize(WIDTH,HEIGHT);
         this.setLocation(50, 50);
@@ -150,6 +153,7 @@ public class MainWindow extends JFrame{
         exportButton = new JButton("导出");
         exportButton.setSize(WIDTH / 5 - 40, 30 * 2);
         exportButton.setLocation(WIDTH / 100 + WIDTH / 5 * 4 + 20, HEIGHT / 100);
+        exportButton.addActionListener(new ExportListener(this));
         this.add(exportButton);
 
         infoArea = new JTextArea();
@@ -158,5 +162,20 @@ public class MainWindow extends JFrame{
         infoPane.setSize(480,350);
         infoPane.setLocation(10,100);
         this.add(infoPane);
+    }
+
+    /**
+     * 显示导出过程信息
+     * @param s
+     */
+    public void showMessage(String s) {
+        infoArea.append(s + "\n");
+    }
+
+    /**
+     * 清空消息
+     */
+    public void clearMessage() {
+        infoArea.setText("");
     }
 }
