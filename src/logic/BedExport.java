@@ -19,6 +19,12 @@ import java.util.List;
  */
 public class BedExport {
 
+    /**
+     * 导出数据
+     * @param from
+     * @param to
+     * @return
+     */
     public boolean export(Date from, Date to){
         List<Mac_setup> data = readData(from,to);
         if (data == null){
@@ -28,6 +34,11 @@ public class BedExport {
         return saveData(data);
     }
 
+    /**
+     * 保存数据
+     * @param data
+     * @return
+     */
     private boolean saveData(List<Mac_setup> data) {
         Connection connection = AccessDBHelper.getConnection();
         try {
@@ -51,6 +62,12 @@ public class BedExport {
         return true;
     }
 
+    /**
+     * 读取数据
+     * @param from
+     * @param to
+     * @return
+     */
     private List<Mac_setup> readData(Date from, Date to){
         final Session session = MysqlDBHelper.getSession();
 

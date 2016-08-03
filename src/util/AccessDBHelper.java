@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
+ * 连接access数据库
  * Created by 31344 on 2016/8/2.
  */
 public class AccessDBHelper {

@@ -7,6 +7,12 @@ import java.io.*;
  */
 public class FileHelper {
 
+    /**
+     * 复制文件
+     * @param src
+     * @param des
+     * @return
+     */
     public static boolean CopyFile(String src,String des){
         try {
             FileInputStream in = new FileInputStream(new File(src));
