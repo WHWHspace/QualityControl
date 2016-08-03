@@ -1,5 +1,7 @@
 package logic;
 
+import ui.MainWindow;
+
 import java.util.Date;
 
 /**
@@ -8,9 +10,11 @@ import java.util.Date;
 public class DataExport {
 
     BedExport bedExport;
+    MainWindow window;
 
-    public DataExport(){
+    public DataExport(MainWindow window){
         bedExport = new BedExport();
+        window = window;
     }
 
     /**
@@ -19,6 +23,20 @@ public class DataExport {
      * @param to
      */
     public void exportData(Date from,Date to){
-        bedExport.export(from,to);
+        window.showMessage("开始导出...");
+
+        //床位
+        window.showMessage("导出床位信息中...");
+        if(bedExport.export(from, to)) {
+            window.showMessage("床位信息导出成功。");
+        }
+        else{
+            window.showMessage("床位信息导出错误。");
+        }
+
+        //......
+
+
+        window.showMessage("导出结束。");
     }
 }

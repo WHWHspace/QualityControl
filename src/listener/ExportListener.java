@@ -22,7 +22,7 @@ public class ExportListener implements ActionListener{
 
     public ExportListener(MainWindow window){
         this.window = window;
-        export = new DataExport();
+        export = new DataExport(window);
     }
 
     /**

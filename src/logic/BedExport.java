@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * 床位信息导出
  * Created by 31344 on 2016/8/2.
  */
 public class BedExport {
