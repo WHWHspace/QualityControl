@@ -3,3 +3,7 @@
 upload
 out
 QualityControl.iml
+.settings
+bin
+.classpath
+.project
