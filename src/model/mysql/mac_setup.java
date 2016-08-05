@@ -22,7 +22,7 @@ public class Mac_setup {
     }
 
     public String getMac_bedno() {
-        return mac_bedno;
+        return mac_bedno==null?"":mac_bedno;
     }
 
     public void setMac_bedno(String mac_bedno) {

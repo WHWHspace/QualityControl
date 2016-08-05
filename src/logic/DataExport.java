@@ -10,11 +10,13 @@ import java.util.Date;
 public class DataExport {
 
     BedExport bedExport;
+    PatientExport patientExport;
     MainWindow window;
 
     public DataExport(MainWindow window){
         bedExport = new BedExport();
-        window = window;
+        patientExport = new PatientExport();
+        this.window = window;
     }
 
     /**
@@ -33,6 +35,16 @@ public class DataExport {
         else{
             window.showMessage("床位信息导出错误。");
         }
+
+        //病人
+        window.showMessage("导出病人信息中...");
+        if(patientExport.export(from, to)) {
+            window.showMessage("病人信息导出成功。");
+        }
+        else{
+            window.showMessage("病人信息导出错误。");
+        }
+
 
         //......
 

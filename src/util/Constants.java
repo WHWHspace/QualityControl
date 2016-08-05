@@ -9,4 +9,7 @@ public class Constants {
 
     //导出文件目录
     public static final String DESTINATION = System.getProperty("user.dir") + "/upload/upload.mdb";
+
+    //id位移，防止id和原有系统冲突
+    public static final int OFFSET = 1000000;
 }
