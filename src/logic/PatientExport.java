@@ -128,7 +128,6 @@ public class PatientExport {
             int age = new Date().getYear() - dob.getYear();
             return Integer.toString(age);
         } catch (ParseException e) {
-            e.printStackTrace();
             return "";
         }
     }

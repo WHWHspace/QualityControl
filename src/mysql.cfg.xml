@@ -13,5 +13,6 @@
 
         <mapping class="model.mysql.Mac_setup"></mapping>
         <mapping class="model.mysql.Pat_info"></mapping>
+        <mapping class="model.mysql.Zinfo_f_05"></mapping>
     </session-factory>
 </hibernate-configuration>

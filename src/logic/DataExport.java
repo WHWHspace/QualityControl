@@ -11,11 +11,13 @@ public class DataExport {
 
     BedExport bedExport;
     PatientExport patientExport;
+    DiagnoseExport diagnoseExport;
     MainWindow window;
 
     public DataExport(MainWindow window){
         bedExport = new BedExport();
         patientExport = new PatientExport();
+        diagnoseExport = new DiagnoseExport();
         this.window = window;
     }
 
@@ -43,6 +45,15 @@ public class DataExport {
         }
         else{
             window.showMessage("病人信息导出错误。");
+        }
+
+        //诊断
+        window.showMessage("导出诊断信息中...");
+        if(diagnoseExport.export(from, to)) {
+            window.showMessage("病人诊断导出成功。");
+        }
+        else{
+            window.showMessage("病人诊断导出错误。");
         }
 
 
