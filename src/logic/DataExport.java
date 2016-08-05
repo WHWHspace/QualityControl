@@ -12,6 +12,7 @@ public class DataExport {
     BedExport bedExport;
     PatientExport patientExport;
     DiagnoseExport diagnoseExport;
+    OutComeExport outComeExport;
     MainWindow window;
 
     public DataExport(MainWindow window){
@@ -54,6 +55,13 @@ public class DataExport {
         }
         else{
             window.showMessage("病人诊断导出错误。");
+        }
+
+        window.showMessage("导出转归信息中...");
+        if (outComeExport.export(from, to)) {
+            window.showMessage("转归信息导出成功。");
+        } else {
+            window.showMessage("转归信息导出错误。");
         }
 
 
