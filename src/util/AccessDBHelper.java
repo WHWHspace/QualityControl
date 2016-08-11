@@ -21,6 +21,21 @@ public class AccessDBHelper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
+
+//        try {
+//            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+////            String dburl = "jdbc:odbc:driver={Microsoft Access Driver (*.mdb)};" +
+////                    "DBQ="+System.getProperty("user.dir") + "\\upload\\upload.mdb";// 此为NO-DSN方式
+// String dburl ="jdbc:odbc:upload";//此为ODBC连接方式
+//            Connection conn = DriverManager.getConnection(dburl, "", "");
+//            return conn;
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
         return null;
     }
 }

@@ -13,12 +13,16 @@ public class DataExport {
     PatientExport patientExport;
     DiagnoseExport diagnoseExport;
     OutComeExport outComeExport;
+    MedicineTreatmentExport medicineTreatmentExport;
+
     MainWindow window;
 
     public DataExport(MainWindow window){
         bedExport = new BedExport();
         patientExport = new PatientExport();
         diagnoseExport = new DiagnoseExport();
+        outComeExport = new OutComeExport();
+        medicineTreatmentExport = new MedicineTreatmentExport();
         this.window = window;
     }
 
@@ -57,6 +61,7 @@ public class DataExport {
             window.showMessage("病人诊断导出错误。");
         }
 
+        //转归
         window.showMessage("导出转归信息中...");
         if (outComeExport.export(from, to)) {
             window.showMessage("转归信息导出成功。");
@@ -64,10 +69,22 @@ public class DataExport {
             window.showMessage("转归信息导出错误。");
         }
 
+        //用药
+        window.showMessage("导出用药信息中...");
+        if (medicineTreatmentExport.export(from, to)) {
+            window.showMessage("用药信息导出成功。");
+        } else {
+            window.showMessage("用药信息导出错误。");
+        }
+
+
 
         //......
 
 
         window.showMessage("导出结束。");
+
+        window.exportButton.setEnabled(true);
+        window.exportButton.setText("导出");
     }
 }

@@ -14,5 +14,8 @@
         <mapping class="model.mysql.Mac_setup"></mapping>
         <mapping class="model.mysql.Pat_info"></mapping>
         <mapping class="model.mysql.Zinfo_f_05"></mapping>
+        <mapping class="model.mysql.Longterm_Ordermgt"></mapping>
+        <mapping class="model.mysql.Shortterm_Ordermgt"></mapping>
+        <mapping class="model.mysql.Drug_list"></mapping>
     </session-factory>
 </hibernate-configuration>

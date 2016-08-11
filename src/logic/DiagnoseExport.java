@@ -48,7 +48,7 @@ public class DiagnoseExport {
             for (int i = 0; i < data.size(); i++){
                 Zinfo_f_05 info = data.get(i);
                 String sql = "INSERT INTO Diagnose VALUES (" +
-                        "'" + (i + Constants.OFFSET) + "'," +           //id
+                        "'" + (info.getPat_id() + Constants.OFFSET) + "'," +           //id
                         "'" + getPatientID(info.getPat_id()) + "'," +   //patient_id
                         "'" + "主要诊断" + "'," +                       //sort type
                         "'" + info.getTxt_1() + "'," +                  //define name

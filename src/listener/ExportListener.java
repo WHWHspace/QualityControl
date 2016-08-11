@@ -31,6 +31,8 @@ public class ExportListener implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        window.exportButton.setEnabled(false);
+        window.exportButton.setText("导出中");
         window.clearMessage();
         String from = window.startYearBox.getSelectedItem() + "-" + window.startMonthBox.getSelectedItem() + "-" + window.startDayBox.getSelectedItem();
         String to = window.stopYearBox.getSelectedItem() + "-" + window.stopMonthBox.getSelectedItem() + "-" + window.stopDayBox.getSelectedItem();
@@ -39,12 +41,21 @@ public class ExportListener implements ActionListener{
             Date toDate = new SimpleDateFormat("yyyy-MM-dd").parse(to);
             if(fromDate.after(toDate)){
                 window.showMessage("开始时间必须小于结束时间！");
+                window.exportButton.setEnabled(true);
+                window.exportButton.setText("导出");
                 return;
             }
             //复制上传文件
             FileHelper.CopyFile(Constants.SOURCE, Constants.DESTINATION);
 
-            export.exportData(fromDate,toDate);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    export.exportData(fromDate,toDate);
+                }
+            }).start();
+
+
         } catch (ParseException e1) {
             e1.printStackTrace();
         }

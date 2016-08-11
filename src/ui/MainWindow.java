@@ -154,6 +154,7 @@ public class MainWindow extends JFrame{
         exportButton.setSize(WIDTH / 5 - 40, 30 * 2);
         exportButton.setLocation(WIDTH / 100 + WIDTH / 5 * 4 + 20, HEIGHT / 100);
         exportButton.addActionListener(new ExportListener(this));
+
         this.add(exportButton);
 
         infoArea = new JTextArea();
@@ -170,6 +171,7 @@ public class MainWindow extends JFrame{
      */
     public void showMessage(String s) {
         infoArea.append(s + "\n");
+        infoPane.repaint();
     }
 
     /**
